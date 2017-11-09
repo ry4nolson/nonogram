@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Javascript Nonogram</title>
+
+  <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="game-controls">
+    <p style="margin-top:0;" class="mobilehide">
+      Use these controls to make any size game (up to 50x50) and choose your difficulty level.
+    </p>
+    <div class="game-options">
+      <div>
+        Rows: <select id="rows"></select>
+      </div>
+      <div>
+        Cols: <select id="cols"></select>
+      </div>
+      <div>
+        Difficulty:
+        <select id="diff">
+                            <option value="1.75">Easy</option>
+                            <option value="4">Medium</option>
+                            <option value="8">Hard</option>
+                        </select>
+      </div>
+    </div>
+    <div class="game-buttons">
+      <input type="button" value="New Game" id="gen">
+      <input type="button" value="Draw a Game" id="draw">
+      <input type="button" value="Cheat" id="cheat">
+      <input type="button" value="Clear Grid" id="clear">
+      <input type="button" value="Check Solution" id="check" style="display:none;">
+      <!--<input style="margin-left:10px;" type="text" id="source" value=""> <input type="button" value="load" id="load">-->
+      <input style="float:right" class="mobilehide" type="button" value="Save Game" id="save">
+      <input style="display:none;float:right;" type="button" value="Update Game" id="update">
+      <input type="hidden" value="" id="gameid">
+    </div>
+    <div class="zoom mobilehide">
+      Zoom
+      <input type="button" value="-" id="zoomout">
+      <input type="button" value="+" id="zoomin">
+    </div>
+  </div>
+  <div class="youwin" style="display:none;">
+    <div>YOU WIN! <small id="time"></small></div><a target='_blank' href='http://codepo8.github.com/CSS3-Rainbow-Dividers/'>OMG! CSS3 Rainbow!</a></div>
+  <div class="message"><span class="close">X</span>
+    <div style="display:none;"></div>
+  </div>
+  <div class="grid">
+    <div id="imageurl" style="display:none;" class="mobilehide">
+      <p>
+        Enter an image url to use to help draw your game (optional):
+        <input type="text" value="" id="imgurl"><input type="button" value="Apply" id="setimg"><br>
+        <small>Absolute path (include http://)</small>
+      </p>
+    </div>
+    <div id="grid"></div>
+  </div>
+
+  <script src="nonogram.js"></script>
+  <script src="events.js"></script>
+
+  <script type='text/javascript'>
+    $(function () {
+      for (var i = 4; i <= 16; i++) {
+        $("#rows, #cols").append("<option value='" + i + "'>" + i + "</option>");
+      }
+      if (window.localStorage) {
+        var cols = localStorage.getItem("cols"),
+          rows = localStorage.getItem("rows");
+
+        if (cols != null && rows != null) {
+          $("#cols").val(cols);
+          $("#rows").val(rows);
+        }
+      }
+      game.newgame = 0;
+      var rows = $("#rows").val();
+      var cols = $("#cols").val();
+      game.init(rows, cols, $("#diff").val(), "");
+      game.rows = rows;
+      game.cols = cols;
+
+    });
+  </script>
+</body>
+
+</html>

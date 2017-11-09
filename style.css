@@ -1,0 +1,130 @@
+    body {font-family:Arial;font-size:12px;padding:20px;margin:0;}
+	.grid { 
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		width:100%;
+		overflow:auto;
+		text-align:center;
+	}
+	
+	#grid { display:inline-block; position:relative; margin:40px; }
+	#grid .image { position:absolute; width:100%; height:100%; background-repeat:none;}
+	#grid table { border-collapse:collapse; font-family:courier;margin:0 auto; position:relative; }
+	#grid table td {
+		border:1px solid #fff;
+		background:#ccc;
+		width:10px;
+		height:10px;
+		-moz-transition:0.5s; -webkit-transition:0.5s;
+		cursor:pointer;
+		text-align:center;
+		font-family:Verdana, Geneva, sans-serif;
+		line-height:10px;
+	}
+	.mobile #grid table td, #grid.shuffling table td { -moz-transition:none !important; -webkit-transition:none !important; }
+	.zoom-0 { padding:0;}
+	.zoom-2 { padding:2px; }
+	.zoom-4 { padding:4px; }
+	.zoom-6 { padding:6px; }
+	.zoom-8 { padding:8px; }
+	.zoom-10 { padding:10px; }
+	.zoom-12 { padding:12px; }
+	.zoom-14 { padding:14px; }
+	.zoom-16 { padding:16px; }
+	.zoom-18 { padding:18px; }
+	.zoom-20 { padding:20px; }
+	
+	#grid table td.slide { width:40px; height:40px; }
+	#grid table td.slide.game-blank { background:#fff; }
+	#grid table td.slide.even { background: red; }
+	#progress { width:400px;background:#fff; border:1px solid #666; border-radius:5px; height:20px; margin:0 auto; }
+	.mobile #progress { width:100%; }
+	#progress #bar { width:0; background:#9F0; height:20px; border-radius:5px; line-height:20px; text-align:left; }
+	
+	#grid td.game-piece-draw { background:#F93; -moz-transition:0.5s; -webkit-transition:0.5s; }
+	#grid td.game-column, #grid td.game-row { background:transparent; cursor:default; font-family:"Courier New", Courier, monospace; border:none; }
+	#grid td.game-column { text-align:center; vertical-align:bottom; height:auto; line-height:15px; padding-bottom:10px; }
+	#grid td.game-row { text-align:right; white-space:nowrap; width:auto; padding-right:10px; }
+	#grid td.game-cheat { background:pink; -moz-transition:0.5s; -webkit-transition:0.5s; }
+	#grid td.game-active { background:red; -moz-transition:0.5s; -webkit-transition:0.5s;}
+	#grid td.game-piece.game-reveal { box-shadow:0 0 2px 5px rgba(0, 0, 0, 0.5) inset; -moz-transition:0.5s; -webkit-transition:0.5s;}
+	
+	.mobile .game-options div { margin:0; padding:0; border:none; }
+	.game-buttons { clear:left; border-top:2px solid #ccc; padding:10px 0 0; }
+	.mobile .game-buttons { border:none; padding:0; }
+	.zoom {
+		padding: 10px 0;
+	}
+	.message { position:relative; overflow:hidden;}
+	.message div { text-align:center; border-radius:10px; padding:5px; margin:10px 0;  }
+	.message .close { display:block; position:absolute; top:10px; right:5px; cursor:pointer; padding:5px; font-family:Verdana; font-weight:bold; }
+	.message .success { background:#9AFFD2; border:1px solid #009900; color:#000; }
+	.message .error { background:#C0402A; border:1px solid #C0402A; color:#fff; }
+	
+		/*
+	 * CSS animated rainbow dividers of awesome 
+	 * by Chris Heilmann @codepo8 and Lea Verou @leaverou 
+	**/
+	@-moz-keyframes charlieeee {
+	  from { background-position:top left; } 
+	  to {background-position:top right; }
+	}
+	@-webkit-keyframes charlieeee { 
+	  from { background-position:top left; }  
+	  to { background-position:top right; }  
+	}
+	@-o-keyframes charlieeee { 
+	  from { background-position:top left; }  
+	  to { background-position:top right; }  
+	}
+	@-ms-keyframes charlieeee { 
+	  from { background-position:top left; }  
+	  to { background-position:top right; }  
+	}
+	@keyframes charlieeee { 
+	  from { background-position:top left; }  
+	  to { background-position:top right; }  
+	}
+	.youwin div {
+	  font-size:75px; 
+	  color:#ff0000;
+	}
+	.youwin small { font-size:30px; display:block; }
+	.youwin a { color:#fff; }
+	.youwin{
+	  font-weight:bold;
+	  text-align:center;
+	  border-radius:10px;
+	  margin:10px 0;
+	  background:#fff;
+	  background-image:-webkit-linear-gradient( left, red, orange, yellow, green,
+											  blue, indigo, violet, indigo, blue,
+											  green, yellow, orange, red );
+	  background-image:-moz-linear-gradient( left, red, orange, yellow, green,
+											 blue,indigo, violet, indigo, blue,
+											 green, yellow, orange,red );
+	  background-image:-o-linear-gradient( left, red, orange, yellow, green,
+											 blue,indigo, violet, indigo, blue,
+											 green, yellow, orange,red );
+	  background-image:-ms-linear-gradient( left, red, orange, yellow, green,
+											 blue,indigo, violet, indigo, blue,
+											 green, yellow, orange,red );
+	  background-image:-khtml-linear-gradient( left, red, orange, yellow, green,
+											 blue,indigo, violet, indigo, blue,
+											 green, yellow, orange,red );
+	  background-image:linear-gradient( left, red, orange, yellow, green,
+											 blue,indigo, violet, indigo, blue,
+											 green, yellow, orange,red );
+	  -moz-animation:charlieeee 2.5s forwards linear infinite;
+	  -webkit-animation:charlieeee 2.5s forwards linear infinite;
+	  -o-animation:charlieeee 2.5s forwards linear infinite;
+	  -khtml-animation:charlieeee 2.5s forwards linear infinite;
+	  -ms-animation:charlieeee 2.5s forwards linear infinite;
+	  -lynx-animation:charlieeee 2.5s forwards linear infinite;
+	  animation:charlieeee 2.5s forwards linear infinite;
+	  background-size:50% auto;
+	}
